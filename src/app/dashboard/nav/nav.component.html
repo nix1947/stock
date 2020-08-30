@@ -1,0 +1,62 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar style="color: green">NEPSE PORTFOLIO</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#" class="text-upper">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">assessment</mat-icon>
+        Live Market
+      </a>
+
+      <a mat-list-item href="#" class="text-upper">
+
+        <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
+        My portfolio
+      </a>
+      <a mat-list-item href="#" class="text-upper">
+
+        <mat-icon aria-hidden="false" aria-label="Example home icon">business_center</mat-icon>
+        Broker Analysis
+      </a>
+      <a mat-list-item href="#" class="text-upper">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+        Company Analysis
+      </a>
+      <a mat-list-item href="#" class="text-upper">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">article</mat-icon>
+        News
+      </a>
+    </mat-nav-list>
+
+    <hr>
+    <mat-toolbar>GOLD</mat-toolbar>
+    <mat-nav-list>
+
+    </mat-nav-list>
+
+    <hr>
+    <mat-toolbar>FOREX</mat-toolbar>
+    <mat-nav-list>
+
+    </mat-nav-list>
+
+    <hr>
+    <mat-toolbar>OIL</mat-toolbar>
+    <mat-nav-list>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>nepse</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet>
+      <app-company-detail></app-company-detail>
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
